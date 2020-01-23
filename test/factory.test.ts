@@ -19,9 +19,22 @@ it('throws on undefined argument', () => {
   }).toThrowError();
 });
 
-it('merges the defaults', () => {
+it('merges the default', () => {
   const user = factory<User>({ github: 'Schniz' });
   const instance = user({ name: 'Gal' });
-  expect(instance.github).toBe('Schniz');
-  expect(instance.name).toBe('Gal');
+  expect(instance).toEqual({
+    name: 'Gal',
+    github: 'Schniz',
+  });
+  expect(instance).not.toEqual({
+    name: 'Gal',
+  });
 });
+
+it(`doesn't break in equality error tests because of missing keys`, () => {
+  const user = factory<User>({ github: 'Schniz' });
+  const instance = user({ name: 'Gal' });
+  expect(() => {
+    expect(instance).toEqual({});
+  }).toThrow(/deep equality/);
+})
