@@ -1,8 +1,8 @@
 # `factoree`
 
-> The ease of `x as any as MyType` without getting weird `undefined`s
+> 💥🔒 Fail early, fail fast: type-safe and runtime-safe partial factories for TypeScript
 
-Provides a strict factory for testing. Ensures you don't accidentally access a field you haven't created, and therefore helping with catching bugs early on.
+The ease of `x as any as MyType` without getting weird `undefined`s: `factoree` provides a strict factory for testing. Ensures you don't accidentally access a field you haven't created, and therefore helping with catching bugs early on.
 
 ```ts
 import { factory } from 'factoree';
