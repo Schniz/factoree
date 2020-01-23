@@ -9,7 +9,7 @@ import { factory } from 'factoree';
 
 type User = { name: string; twitterHandle?: string };
 
-const createUser = factoree<User>({ twitterHandle: undefined });
+const createUser = factory<User>({ twitterHandle: undefined });
 
 const gal = createUser({ name: 'Gal', twitterHandle: 'galstar' }); // => User
 const joe = createUser({}); // => User
