@@ -57,10 +57,13 @@ const JEST_INTERNAL_KEYS: (string | number | symbol)[] = [
 
 const PROMISE_REQUIRED_KEYS: string[] = [
   // See https://github.com/Schniz/factoree/issues/2
-  "then",
+  'then',
 ];
 
-const EXCEPTION_KEYS_THAT_MUST_EXIST = [...JEST_INTERNAL_KEYS, ...PROMISE_REQUIRED_KEYS];
+const EXCEPTION_KEYS_THAT_MUST_EXIST = [
+  ...JEST_INTERNAL_KEYS,
+  ...PROMISE_REQUIRED_KEYS,
+];
 
 function isExceptionKey(p: string | number | symbol): boolean {
   return EXCEPTION_KEYS_THAT_MUST_EXIST.indexOf(p) > -1;

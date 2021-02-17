@@ -7,6 +7,7 @@
     "dist"
   ],
   "scripts": {
+    "postinstall": "husky install",
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test",
@@ -14,11 +15,6 @@
     "prepare": "tsdx build"
   },
   "peerDependencies": {},
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
-  },
   "prettier": {
     "printWidth": 80,
     "semi": true,

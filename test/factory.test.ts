@@ -37,10 +37,10 @@ it(`doesn't break in equality error tests because of missing keys`, () => {
   expect(() => {
     expect(instance).toEqual({});
   }).toThrow(/deep equality/);
-})
+});
 
 it(`can be used in Promise.resolve`, async () => {
   const user = factory<User>({ github: 'Schniz' });
   const instance = await Promise.resolve(user({ name: 'Gal' }));
-  expect(instance).toEqual({ name: 'Gal', github: 'Schniz' })
-})
+  expect(instance).toEqual({ name: 'Gal', github: 'Schniz' });
+});
