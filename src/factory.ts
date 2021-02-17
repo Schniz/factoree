@@ -30,7 +30,7 @@ export function factory<T extends Object>(defaults?: Partial<T>): Factory<T> {
       get(target: Partial<T>, p: keyof T) {
         if (target?.hasOwnProperty?.(p) || target[p]) {
           return target[p];
-        } else if (isInternalJestImplementation(p)) {
+        } else if (isExceptionKey(p)) {
           return undefined;
         } else {
           throw new Error(
@@ -55,6 +55,13 @@ const JEST_INTERNAL_KEYS: (string | number | symbol)[] = [
   '@@__IMMUTABLE_RECORD__@@',
 ];
 
-function isInternalJestImplementation(p: string | number | symbol): boolean {
-  return JEST_INTERNAL_KEYS.indexOf(p) > -1;
+const PROMISE_REQUIRED_KEYS: string[] = [
+  // See https://github.com/Schniz/factoree/issues/2
+  "then",
+];
+
+const EXCEPTION_KEYS_THAT_MUST_EXIST = [...JEST_INTERNAL_KEYS, ...PROMISE_REQUIRED_KEYS];
+
+function isExceptionKey(p: string | number | symbol): boolean {
+  return EXCEPTION_KEYS_THAT_MUST_EXIST.indexOf(p) > -1;
 }
