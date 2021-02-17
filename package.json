@@ -7,6 +7,7 @@
     "dist"
   ],
   "scripts": {
+    "postinstall": "husky install",
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test",
@@ -14,11 +15,6 @@
     "prepare": "tsdx build"
   },
   "peerDependencies": {},
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
-  },
   "prettier": {
     "printWidth": 80,
     "semi": true,
@@ -29,10 +25,10 @@
   "author": "Gal Schlezinger",
   "module": "dist/factoree.esm.js",
   "devDependencies": {
-    "@types/jest": "^24.9.0",
-    "husky": "^4.2.0",
-    "tsdx": "^0.12.3",
-    "tslib": "^1.10.0",
-    "typescript": "^3.7.5"
+    "@types/jest": "^26.0.20",
+    "husky": "^5.0.9",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.1.0",
+    "typescript": "^4.1.5"
   }
 }
