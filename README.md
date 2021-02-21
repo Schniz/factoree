@@ -22,6 +22,10 @@ joe.name; // => Error! Can't access undefined key 'name' for object {twitterHand
 
 This project was bootstrapped with [TSDX](https://github.com/jaredpalmer/tsdx).
 
+Run `npx husky install` or `yarn husky install` to install the pre-commit hook.
+
+### Available commands
+
 Below is a list of commands you will probably find useful.
 
 ### `npm start` or `yarn start`
