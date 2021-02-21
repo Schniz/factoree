@@ -21,5 +21,6 @@ jobs:
       run: |
         yarn
         yarn test
+        yarn lint
       env:
         CI: true

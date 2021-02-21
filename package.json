@@ -7,7 +7,6 @@
     "dist"
   ],
   "scripts": {
-    "postinstall": "husky install",
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test",

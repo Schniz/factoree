@@ -24,6 +24,11 @@ This project was bootstrapped with [TSDX](https://github.com/jaredpalmer/tsdx).
 
 Below is a list of commands you will probably find useful.
 
+### Git hooks
+
+If you want to have git hooks for faster feedback, run `npx husky install`.
+All of them also run in CI, so it will build if lint fails, etc.
+
 ### `npm start` or `yarn start`
 
 Runs the project in development/watch mode. Your project will be rebuilt upon changes. TSDX has a special logger for you convenience. Error messages are pretty printed and formatted for compatibility VS Code's Problems tab.
