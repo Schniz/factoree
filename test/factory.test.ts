@@ -3,6 +3,10 @@ import { factory } from '../src';
 interface User {
   name: string;
   github: string;
+  permissions: {
+    read: boolean;
+    write: boolean;
+  }
 }
 
 it('passes the overrides', () => {
