@@ -3,6 +3,10 @@ import { factory } from '../src';
 interface User {
   name: string;
   github: string;
+  permissions: {
+    read: boolean;
+    write: boolean;
+  }
 }
 
 it('passes the overrides', () => {
@@ -44,3 +48,15 @@ it(`can be used in Promise.resolve`, async () => {
   const instance = await Promise.resolve(user({ name: 'Gal' }));
   expect(instance).toEqual({ name: 'Gal', github: 'Schniz' });
 });
+
+it(`allows partial in nested objects`, () => { 
+  const user = factory<User>({ github: 'deanshub' });
+  const instance = user({ permissions: { write: true } });
+  expect(instance).toEqual({
+    github: 'deanshub',
+    permissions: {write: true},
+  });
+  expect(() => {
+    console.log(instance.permissions.read);
+  }).toThrowError();
+})
