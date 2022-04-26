@@ -56,4 +56,7 @@ it(`allows partial in nested objects`, () => {
     github: 'deanshub',
     permissions: {write: true},
   });
+  expect(() => {
+    console.log(instance.permissions.read);
+  }).toThrowError();
 })

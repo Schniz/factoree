@@ -36,6 +36,9 @@ export function factory<T extends Object>(defaults?: Partial<T>): Factory<T> {
       },
       get(target: Partial<T>, p: keyof T) {
         if (target?.hasOwnProperty?.(p) || target[p]) {
+          if (typeof target[p] === 'object') {
+          return factory(target[p])();
+          }
           return target[p];
         } else if (isExceptionKey(p)) {
           return undefined;
