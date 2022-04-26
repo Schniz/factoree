@@ -1,5 +1,12 @@
 import { inspect } from 'util';
 
+type RecursivePartial<T> = {
+  [P in keyof T]?:
+    T[P] extends (infer U)[] ? RecursivePartial<U>[] :
+    T[P] extends object ? RecursivePartial<T[P]> :
+    T[P];
+};
+
 /**
  * A factory that will throw errors when accessing
  * an unsetted value
@@ -9,7 +16,7 @@ export type Factory<T> = (
    * Attributes to set for the instance.
    * These will extend and override the attributes provided to the `defaults` when the factory was created
    */
-  attributes?: Partial<T>
+  attributes?: RecursivePartial<T>
 ) => T;
 
 /**
